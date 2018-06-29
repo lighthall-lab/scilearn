@@ -33,7 +33,7 @@ for file in os.listdir(source_dir):
 # In[ ]:
 
 
-frame=frame[frame['Finished']=='True']
+frame=frame[frame['Finished']=='1']
 frame=frame.rename(columns={'Q9':'ssid','SC0':'score'})
 frame['ssid']=frame['ssid']+'\t'
 
@@ -62,9 +62,6 @@ frame=frame.sort_values(['ssid','version'])[columns].set_index('ssid')
 
 
 derivs_dir=os.path.join('..','derivatives')
-try:os.mkdir(derivs_dir)
-except OSError as e:
-    print(e)
 
 
 # In[ ]:
