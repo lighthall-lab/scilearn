@@ -48,7 +48,15 @@ fit <- lm(TSSI_sum ~ AgeGroup, data)
 Anova(fit, type=3)
 eta_sq(fit)
 
-fit <- lm(SciTude_sum ~ AgeGroup, data)
+fit <- lm(SciTudeA_sum ~ AgeGroup, data)
+Anova(fit, type=3)
+eta_sq(fit)
+
+fit <- lm(SciTudeL_sum ~ AgeGroup, data)
+Anova(fit, type=3)
+eta_sq(fit)
+
+fit <- lm(SciTudeS_sum ~ AgeGroup, data)
 Anova(fit, type=3)
 eta_sq(fit)
 
