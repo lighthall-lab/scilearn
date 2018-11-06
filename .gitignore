@@ -1,5 +1,8 @@
 .ipynb_checkpoints/*
 
+__pycache__
+config.py
+
 Thumbs.db
 .DS_Store
 
