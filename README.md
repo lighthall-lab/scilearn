@@ -1,6 +1,6 @@
 # Science Learning study
 
-Make sure you have all the required dependencies: `pandas`, `xlrd`, `requests`, `sklearn`, `seaborn`, (`convert-eprime`)[https://github.com/tsalo/convert-eprime]
+Make sure you have all the required dependencies: `pandas`, `xlrd`, `requests`, `sklearn`, `seaborn`, (convert-eprime)[https://github.com/tsalo/convert-eprime]
 
 ### 0.1.qualtrics_request.ipynb
 
