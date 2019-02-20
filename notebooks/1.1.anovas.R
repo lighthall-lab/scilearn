@@ -5,7 +5,7 @@ library(car)
 #library(sjstats)
 
 # Read the data
-data <- read.csv('../derivatives/0.4.joined/all_subject_level.csv')
+data <- read.csv('../derivatives/20190218/all_subject_level_bound.csv')
 
 # Set factors
 data$AgeGroup <- as.factor(data$AgeGroup)
@@ -21,66 +21,75 @@ options(contrasts = c("contr.sum", "contr.poly"))
 options("contrasts")
 
 # Two-way AgeGroup x Condition ANOVA on comprehension delta
-fit <- lm(comp_change ~ AgeGroup * Condition, data)
+fit <- lm(comp_change_bound ~ AgeGroup * Condition, data)
 Anova(fit, type=3)
 #eta_sq(fit)
 
 # Two-way AgeGroup x Condition ANOVA on comprehension at T1
-fit <- lm(comp_t1 ~ AgeGroup * Condition, data)
+fit <- lm(comp_t1_bound ~ AgeGroup * Condition, data)
 Anova(fit, type=3)
 #eta_sq(fit)
 
 # Two-way AgeGroup x Condition ANOVA on comprehension at T2
-fit <- lm(comp_t2 ~ AgeGroup * Condition, data)
+fit <- lm(comp_t2_bound ~ AgeGroup * Condition, data)
 Anova(fit, type=3)
 #eta_sq(fit)
 
-# One-way AgeGroup ANOVA on n-back reaction time
-fit <- lm(nb_RT ~ AgeGroup, data)
+# Two-way AgeGroup x Condition ANOVA on n-back reaction time
+fit <- lm(nb_RT_bound ~ AgeGroup * Condition, data)
 Anova(fit, type=3)
 #eta_sq(fit)
 
-# One-way AgeGroup ANOVA on n-back corrected recognition
-fit <- lm(nb_CoR ~ AgeGroup, data)
+# Two-way AgeGroup x Condition ANOVA on n-back corrected recognition
+fit <- lm(nb_CoR_bound ~ AgeGroup * Condition, data)
 Anova(fit, type=3)
 #eta_sq(fit)
 
-# One-way AgeGroup ANOVA on processing speed reaction time
-fit <- lm(procspd_RT ~ AgeGroup, data)
+
+
+# Two-way AgeGroup x Condition ANOVA on processing speed reaction time
+fit <- lm(procspd_RT_bound ~ AgeGroup * Condition, data)
 Anova(fit, type=3)
 #eta_sq(fit)
 
-# One-way AgeGroup ANOVA on vocabulary score
-fit <- lm(vocab_sum ~ AgeGroup, data)
+# Sampling Error Check: Processing Speed
+oa_data <- subset(data, AgeGroup == 'OA')
+fit <- lm(procspd_RT_bound ~ Condition, data = oa_data)
+Anova(fit, type=3)
+
+
+
+# Two-way AgeGroup x Condition ANOVA on vocabulary score
+fit <- lm(vocab_sum_bound ~ AgeGroup * Condition, data)
 Anova(fit, type=3)
 #eta_sq(fit)
 
-# One-way AgeGroup ANOVA on Need for Cognition score
-fit <- lm(NFCS_sum ~ AgeGroup, data)
+# Two-way AgeGroup x Condition ANOVA on Need for Cognition score
+fit <- lm(NFCS_sum_bound ~ AgeGroup * Condition, data)
 Anova(fit, type=3)
 #eta_sq(fit)
 
-# One-way AgeGroup ANOVA on Trust in Science/Scientists score
-fit <- lm(TSSI_sum ~ AgeGroup, data)
+# Two-way AgeGroup x Condition ANOVA on Trust in Science/Scientists score
+fit <- lm(TSSI_sum_bound ~ AgeGroup * Condition, data)
 Anova(fit, type=3)
 #eta_sq(fit)
 
-# One-way AgeGroup ANOVA on Science Attitudes subscale-A
-fit <- lm(SciTudeA_sum ~ AgeGroup, data)
+# Two-way AgeGroup x Condition ANOVA on Science Attitudes subscale-A
+fit <- lm(SciTudeA_sum_bound ~ AgeGroup * Condition, data)
 Anova(fit, type=3)
 #eta_sq(fit)
 
-# One-way AgeGroup ANOVA on Science Attitudes subscale-L
-fit <- lm(SciTudeL_sum ~ AgeGroup, data)
+# Two-way AgeGroup x Condition ANOVA on Science Attitudes subscale-L
+fit <- lm(SciTudeL_sum_bound ~ AgeGroup * Condition, data)
 Anova(fit, type=3)
 #eta_sq(fit)
 
-# One-way AgeGroup ANOVA on Science Attitudes subscale-s
-fit <- lm(SciTudeS_sum ~ AgeGroup, data)
+# Two-way AgeGroup x Condition ANOVA on Science Attitudes subscale-s
+fit <- lm(SciTudeS_sum_bound ~ AgeGroup * Condition, data)
 Anova(fit, type=3)
 #eta_sq(fit)
 
-# One-way AgeGroup ANOVA on Science Literacy
-fit <- lm(SciLit_sum ~ AgeGroup, data)
+# Two-way AgeGroup x Condition ANOVA on Science Literacy
+fit <- lm(SciLit_sum_bound ~ AgeGroup * Condition, data)
 Anova(fit, type=3)
 #eta_sq(fit)
